@@ -16,3 +16,8 @@ app.use(cors());
 app.listen(port, () => {
     console.log('Server is running on ' + port + 'port');
 });
+
+app.use('/users', require('./routes/users'));
+
+const express = require('express');
+const router = express.Router();
