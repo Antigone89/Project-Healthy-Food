@@ -19,5 +19,6 @@ app.listen(port, () => {
 
 app.use('/users', require('./routes/users'));
 
-const express = require('express');
-const router = express.Router();
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+})
