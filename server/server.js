@@ -19,11 +19,10 @@ app.listen(port, () => {
     console.log('Server is running on ' + port + 'port');
 });
 
+app.use('/recipes', require('./routes/recipes'));
 app.use('/users', require('./routes/users'));
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+
 
 mongoose.connect(mongoURI, { useNewUrlParser: true })
     .then(() => console.log('Connection to Mongo DB established'))

@@ -1,13 +1,12 @@
 const mongoose = require("mongoose")
 
 
-const recipesSchema = new mongoose.Schema({
-    description: String,
-    location: String,
-    salary: Number,
+const RecipesSchema = new mongoose.Schema({
+    ingredients: Array,
+    duration: Number,
     title: { type: String, required: true },
 } /*what to write since the data type is not only string*/,
 );
 
-module.exports = mongoose.model("recipe", RecipeSchema);
+module.exports = mongoose.model("recipe", RecipesSchema);
 
