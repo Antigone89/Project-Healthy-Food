@@ -4,7 +4,7 @@ const UserSchema = require("../model/usersModel");
 const router = express.Router();
 
 router.post("/users", (req, res) => {
-    const reqname = req.body.name;
+    const name = req.body.name;
     const reqemail = req.body.email;
     const reqpassword = req.body.password;
 
