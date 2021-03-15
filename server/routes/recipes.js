@@ -23,9 +23,15 @@ router.get("/all", (req, res) => {
 router.post('/new', (req, res) => {
     const title = req.body.title;
     const duration = req.body.duration;
+    const carbohydrates = req.body.carbohydrates;
+    const proteins = req.body.proteins;
+    const fat = req.body.fat;
     const newRecipe = RecipesSchema({
         duration: duration,
         title: title,
+        carbohydrates: carbohydrates,
+        proteins: proteins,
+        fat: fat,
     })
     newRecipe.save()
         .then(recipe => {
