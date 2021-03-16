@@ -27,6 +27,7 @@ router.post('/new', (req, res) => {
     const proteins = req.body.proteins;
     const fat = req.body.fat;
     const newRecipe = RecipesSchema({
+
         duration: duration,
         title: title,
         carbohydrates: carbohydrates,

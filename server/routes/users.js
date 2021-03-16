@@ -3,8 +3,9 @@ const bcrypt = require("bcrypt");
 const UserSchema = require("../model/usersModel");
 const router = express.Router();
 
-router.post("/users", (req, res) => {
-    const name = req.body.name;
+
+
+router.post("/register", (req, res) => {
     const reqemail = req.body.email;
     const reqpassword = req.body.password;
 
@@ -36,4 +37,34 @@ router.post("/users", (req, res) => {
     });
 });
 
+router.post("/login", (req, res) => {
+    const reqemail = req.body.email;
+    const reqpassword = req.body.password;
+
+    UserSchema.findOne({ email: reqemail }, (err, user) => {
+        if (err) {
+            res.send(err);
+        }
+        if (user) {
+            // Load hash from your password DB.
+            bcrypt.compare(reqpassword, user.password, function (err, result) {
+                if (result == true) {
+                    res.send(user)
+                }
+                else {
+                    res.send({ message: 'wrong password' })
+                }
+
+                // result == true
+            });
+
+        }
+        else {
+            res.send({ messege: "user doesn't exist" })
+
+        }
+    });
+});
+
 module.exports = router;
+

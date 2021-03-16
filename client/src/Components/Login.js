@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from "../Context/AuthContext"
 
 
-const Registration = () => {
-    const { register } = useContext(AuthContext)
+const Login = () => {
+    const { login } = useContext(AuthContext)
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -14,9 +14,9 @@ const Registration = () => {
     const inputPwdHandler = (e) => {
         setPassword(e.target.value);
     };
-    const handleRegister = (e) => {
+    const handleLogin = (e) => {
         e.preventDefault()
-        register({ email, password })
+        login({ email, password })
 
     }
 
@@ -34,7 +34,7 @@ const Registration = () => {
                     <input type="password" name="password" placeholder="password" value={password} onChange={inputPwdHandler}></input>
                 </div>
                 <div className="footer">
-                    <button onClick={handleRegister} className="btn">Register</button>
+                    <button onClick={handleLogin} className="btn">Login</button>
 
                 </div>
             </div>
@@ -42,4 +42,4 @@ const Registration = () => {
         </form >
     )
 }
-export default Registration
+export default Login
