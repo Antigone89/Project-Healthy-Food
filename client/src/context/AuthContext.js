@@ -33,8 +33,30 @@ export const AuthProvider = ({ children }) => {
 
     const register = ({ email, password }) => {
 
-    }
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded")
 
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("email", email);
+        urlencoded.append("password", password);
+
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:5000/users/register", requestOptions)
+            .then(response => { response.json() })
+            .then(result => {
+                console.log(result)
+                if (result.success == true) {
+                    setUser(result.user)
+
+                }
+            })
+    }
     const login = async ({ email, password }) => {
 
         var myHeaders = new Headers();
@@ -52,10 +74,11 @@ export const AuthProvider = ({ children }) => {
         };
 
         fetch("http://localhost:5000/users/login", requestOptions)
-            .then(response => response.text())
+            .then(response => response.json())
             .then(result => {
-                if (result.email) {
-                    setUser(result)
+                console.log(result)
+                if (result.success) {
+                    setUser(result.user)
 
                 }
             })
@@ -72,10 +95,12 @@ export const AuthProvider = ({ children }) => {
     }
 
     const logout = () => {
-
+        setUser(null)
     }
 
+    console.log(user)
     return (
+
         <AuthContext.Provider value={{ user, login, register, addToFavorite, isAuthenticated, logout }}>
             {children}
         </AuthContext.Provider>

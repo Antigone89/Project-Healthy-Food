@@ -37,6 +37,7 @@ router.post("/register", (req, res) => {
     });
 });
 
+
 router.post("/login", (req, res) => {
     const reqemail = req.body.email;
     const reqpassword = req.body.password;
@@ -49,10 +50,11 @@ router.post("/login", (req, res) => {
             // Load hash from your password DB.
             bcrypt.compare(reqpassword, user.password, function (err, result) {
                 if (result == true) {
-                    res.send(user)
+                    res.status(200).send({ user: user, success: true })
                 }
                 else {
-                    res.send({ message: 'wrong password' })
+
+                    res.status(403).send({ message: 'wrong password', success: false })
                 }
 
                 // result == true
@@ -60,11 +62,15 @@ router.post("/login", (req, res) => {
 
         }
         else {
-            res.send({ messege: "user doesn't exist" })
+            res.status(403).send({ messege: "user doesn't exist", success: false })
 
         }
+
+
     });
 });
+
+
 
 module.exports = router;
 

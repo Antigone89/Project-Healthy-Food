@@ -19,10 +19,9 @@ const Navigationbar = () => {
     console.log(user)
 
 
+
     const handleLogout = () => {
         logout()
-
-
 
     }
 
