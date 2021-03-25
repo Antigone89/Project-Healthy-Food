@@ -9,8 +9,8 @@ import {
 } from "react-router-dom";
 
 //retrieve user from auth context and display his email
-const activeStyle = { color: "white", backgroundColor: "#f1356d", borderRadius: "8px" }
-const normalStyle = { color: "black" }
+const activeStyle = { color: "white", backgroundColor: "#f1356d", borderRadius: "8px", margin: '50px', padding: '10px', textDecoration: 'none', fontStyle: 'italic' }
+const normalStyle = { color: "black", margin: '50px', padding: '50px', textDecoration: 'none', fontStyle: 'italic' }
 const Navigationbar = () => {
     const { user, logout } = useContext(AuthContext)
     let location = useLocation()
@@ -31,6 +31,7 @@ const Navigationbar = () => {
                 <Link to="/" style={location.pathname == "/" ? activeStyle : normalStyle} >Home</Link>
                 <Link to="/registration" style={location.pathname == "/registration" ? activeStyle : normalStyle}>Registration</Link>
                 <Link to="/searchbar" style={location.pathname == "/searchbar" ? activeStyle : normalStyle}>Search</Link>
+                <Link to="/recipes" style={location.pathname == "/recipes" ? activeStyle : normalStyle}>Recipes</Link>
                 <Link to="/login" style={location.pathname == "/login" ? activeStyle : normalStyle}>Login</Link>
             </div>
 

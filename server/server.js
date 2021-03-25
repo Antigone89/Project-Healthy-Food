@@ -4,8 +4,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const port = process.env.PORT || 5000;
-const mongoURI = require("./keys.js").mongoURI
+const mongoURI = require("./konfig/keys.js").mongoURI
 const app = express();
+const passport = require('passport');
+const { jwtStrategy } = require('./konfig/passport');
+
 
 app.use(bodyParser.json());
 app.use(
@@ -22,6 +25,8 @@ app.listen(port, () => {
 app.use('/recipes', require('./routes/recipes'));
 app.use('/users', require('./routes/users'));
 
+app.use(passport.initialize());
+passport.use('jwt', jwtStrategy);
 
 
 mongoose.connect(mongoURI, { useNewUrlParser: true })

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from "../Context/AuthContext"
 
 
+
 const Registration = () => {
     const { register } = useContext(AuthContext)
     const [email, setEmail] = useState("");
@@ -21,6 +22,8 @@ const Registration = () => {
     }
 
 
+    const normalStyleLogin = { fontStyle: 'italic', color: "black", margin: '50px', textDecoration: 'none' }
+    const activeStyleLogin = { fontStyle: 'italic', color: "white", backgroundColor: "blue", borderRadius: "8px", margin: '50px', padding: '10px', textDecoration: 'none' }
 
     return (
         <form>
@@ -28,15 +31,15 @@ const Registration = () => {
             <div className="form">
                 <div className="form-group">
 
-                    <label htmlFor="email">Email</label>
-                    <input type="text" name="email" placeholder="email" value={email} onChange={inputEmailHandler}></input>
+                    <label htmlFor="email" style={normalStyleLogin}>Email</label>
+                    <input type="text" name="email" placeholder="email" value={email} onChange={inputEmailHandler} style={normalStyleLogin}></input>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name="password" placeholder="password" value={password} onChange={inputPwdHandler}></input>
+                    <label htmlFor="password" style={normalStyleLogin}>Password</label>
+                    <input type="password" name="password" placeholder="password" value={password} onChange={inputPwdHandler} style={normalStyleLogin}></input>
                 </div>
                 <div className="footer">
-                    <button onClick={handleRegister} className="btn">Register</button>
+                    <button onClick={handleRegister} className="btn" style={activeStyleLogin}>Register</button>
 
                 </div>
             </div>

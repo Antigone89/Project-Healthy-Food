@@ -1,14 +1,18 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import React, { Component, useState } from "react";
+import { BrowserRouter, Route, Switch, useLocation } from 'react-router-dom'
+import React, { Component, useState, } from "react";
 import Navbar from './Components/Navbar';
 import Login from './Components/Login';
+import Searchbar from './Components/Searchbar';
 import Registration from './Components/Registration';
-/*import Searchbar from './Components/Searchbar'*/
 import { AuthProvider } from './Context/AuthContext';
-import RecipesDetails from './Components/RecipesDetails'
-import { RecipesProvider } from './Components/RecipesContext';
+import RecipesList from './Components/RecipesList';
+import { RecipesProvider } from './Context/RecipesContext';
+import Home from './Components/Home';
+import Header from './Components/Header';
+
 
 import './App.css';
+
 
 
 function App() {
@@ -19,19 +23,22 @@ function App() {
       <RecipesProvider>
         <AuthProvider>
           <div className="App">
-            <header className="App-header">
-              <p>Healthy Food Project!!!  </p>
+            <Header />
 
-              <Navbar />
-              <Switch>
-                {/* <Route exact path="/searchbar" component={Searchbar}> */}
-                {/* </Route> */}
-                <Route exact path="/Login" component={Login}>
-                </Route>
-                <Route exact path="/Registration" component={Registration} >
-                </Route>
-              </Switch>
-            </header>
+            <Navbar />
+            <Switch>
+              <Route exact path="/" component={Home}>
+              </Route>
+              <Route exact path="/searchbar" component={Searchbar}>
+              </Route>
+              <Route exact path="/Login" component={Login}>
+              </Route>
+              <Route exact path="/Registration" component={Registration} >
+              </Route>
+              <Route exact path="/Recipes" component={RecipesList}>
+              </Route>
+            </Switch>
+
           </div>
         </AuthProvider>
       </RecipesProvider>

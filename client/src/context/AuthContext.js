@@ -48,7 +48,10 @@ export const AuthProvider = ({ children }) => {
         };
 
         fetch("http://localhost:5000/users/register", requestOptions)
-            .then(response => { response.json() })
+            .then(response => {
+                const data = response.json()
+                return data
+            })
             .then(result => {
                 console.log(result)
                 if (result.success == true) {
