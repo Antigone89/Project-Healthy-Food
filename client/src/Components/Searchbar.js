@@ -2,8 +2,12 @@ import React, { useContext, useState } from 'react'
 import RecipesDetails from "./RecipesDetails"
 
 
+
+
 const Searchbar = () => {
 
+    const normalStyle = { flexBox: 'flex', textAlign: 'center', color: "black", margin: '50px', padding: '50px', textDecoration: 'none', fontStyle: 'italic' }
+    const activeStyleSearch = { fontStyle: 'italic', color: "white", backgroundColor: "#ff66ff", borderRadius: "8px", margin: '50px', padding: '10px', textDecoration: 'none' }
 
     const [input, setInput] = useState("")
     const [err, setErr] = useState("")
@@ -45,9 +49,9 @@ const Searchbar = () => {
     }
 
     return (<div>
-        <div className="Searchbar ">
+        <div className="Searchbar " style={normalStyle}>
             <input onChange={handleChange} type="text" placeholder="Search..." value={input} />
-            <button onClick={handleSearch} >Search</button>
+            <button onClick={handleSearch} style={activeStyleSearch}>Search</button>
             <h3 style={{ color: "red" }}>{err}</h3>
             {filteredRecipes && filteredRecipes.map((recipe, index) => {
                 return (

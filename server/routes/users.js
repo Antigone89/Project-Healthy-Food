@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 const UserSchema = require("../model/usersModel");
 const router = express.Router();
 const keys = require("../konfig/keys");
+const passport = require('passport')
 
 
 router.post("/register", (req, res) => {
@@ -94,6 +95,13 @@ router.post("/login", (req, res) => {
     });
 });
 
+router.get("/token", passport.authenticate("jwt", { session: false }), (req, res) => {
+    console.log(req.user)
+    res.send(req.user)
+
+
+
+})
 
 
 module.exports = router;

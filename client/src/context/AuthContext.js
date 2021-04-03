@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom";
 
 
@@ -28,7 +28,9 @@ export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     let history = useHistory()
 
-
+    useEffect(() => {
+        getUser()
+    }, [])
 
 
     const register = ({ email, password }) => {
@@ -81,9 +83,34 @@ export const AuthProvider = ({ children }) => {
             .then(result => {
                 console.log(result)
                 if (result.success) {
+                    localStorage.setItem("token", result.token)
                     setUser(result.user)
 
                 }
+            })
+
+            .catch(error => console.log('error', error));
+
+    }
+    const getUser = async () => {
+
+        const token = localStorage.getItem('token')
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", `Bearer ${token}`);
+
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders
+        };
+
+        fetch("http://localhost:5000/users/token", requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                console.log(result)
+                setUser(result)
+
+
             })
 
             .catch(error => console.log('error', error));

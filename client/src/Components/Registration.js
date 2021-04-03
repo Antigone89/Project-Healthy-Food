@@ -23,7 +23,7 @@ const Registration = () => {
 
 
     const normalStyleLogin = { fontStyle: 'italic', color: "black", margin: '50px', textDecoration: 'none' }
-    const activeStyleLogin = { fontStyle: 'italic', color: "white", backgroundColor: "blue", borderRadius: "8px", margin: '50px', padding: '10px', textDecoration: 'none' }
+    const activeStyleLogin = { fontStyle: 'italic', color: "white", backgroundColor: "#ff66ff", borderRadius: "8px", margin: '50px', padding: '10px', textDecoration: 'none' }
 
     return (
         <form>

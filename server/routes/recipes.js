@@ -61,16 +61,20 @@ router.post("/search",
 router.post('/new', (req, res) => {
     const title = req.body.title;
     const duration = req.body.duration;
-    const carbohydrates = req.body.carbohydrates;
+    const ingredients = req.body.ingredients;
+    const comment = req.body.comment;
+
+
+    /*const carbohydrates = req.body.carbohydrates;
     const proteins = req.body.proteins;
-    const fat = req.body.fat;
+    const fat = req.body.fat;*/
     const newRecipe = RecipesSchema({
 
-        duration: duration,
         title: title,
-        carbohydrates: carbohydrates,
-        proteins: proteins,
-        fat: fat,
+        duration: duration,
+        ingredients: ingredients,
+        comment: comment,
+
     })
     newRecipe.save()
         .then(recipe => {

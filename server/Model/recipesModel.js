@@ -5,6 +5,7 @@ const mongoose = require("mongoose")
 const RecipesSchema = new mongoose.Schema({
     ingredients: Array,
     duration: Number,
+    comment: String,
     carbohydrates: Number,
     proteins: Number,
     fat: Number,

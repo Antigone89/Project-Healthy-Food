@@ -12,7 +12,7 @@ export const Header = () => {
 
         <div>
             {location.pathname == '/login' && <h1>Login</h1>}
-            <h1 style={AppHeader}>HEALTHY FOOD PROJECT</h1>
+            <h1 style={AppHeader}>CODE & LIFE BALANCE</h1>
         </div>
     )
 }

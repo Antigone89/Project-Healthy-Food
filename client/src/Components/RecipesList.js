@@ -13,9 +13,15 @@ const container = {
     alignItems: "center"
 }
 const RecipesList = () => {
-    const { recipes } = useContext(RecipesContext)
+    const { recipes, getRecipes } = useContext(RecipesContext)
+    useEffect(() => {
+        getRecipes()
 
+    }, [])
     console.log('recipes', recipes)
+
+
+
 
     return (
         <div>

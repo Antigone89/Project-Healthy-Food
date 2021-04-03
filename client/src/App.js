@@ -9,6 +9,7 @@ import RecipesList from './Components/RecipesList';
 import { RecipesProvider } from './Context/RecipesContext';
 import Home from './Components/Home';
 import Header from './Components/Header';
+import NewRecipe from './Components/NewRecipe';
 
 
 import './App.css';
@@ -37,7 +38,10 @@ function App() {
               </Route>
               <Route exact path="/Recipes" component={RecipesList}>
               </Route>
+              <Route exact path="/NewRecipe" component={NewRecipe}>
+              </Route>
             </Switch>
+
 
           </div>
         </AuthProvider>
@@ -45,5 +49,7 @@ function App() {
     </BrowserRouter>
   );
 }
+
+
 
 export default App;
