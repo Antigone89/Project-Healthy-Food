@@ -13,7 +13,7 @@ export const Home = () => {
 
         <div className='home' style={homeStyle}>
 
-            <Card className='mb-3' style={{ color: '#000', marginBottom: '15px' }}>
+            <Card className='mb-3' style={{ color: '#000', marginBottom: '15px', margin: '100px' }}>
                 <Card.Img src='https://picsum.photos/100/50'></Card.Img>
                 <Card.Body></Card.Body>
                 <Card.Title></Card.Title>

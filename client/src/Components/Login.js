@@ -22,11 +22,12 @@ const Login = () => {
     }
 
     return (
-        <form>
 
+        <form>
             <div className="form">
                 <div className="form-group">
-
+                    <div>
+                        <h2 style={normalStyleLogin}>Log in</h2></div>
                     <label htmlFor="email" style={normalStyleLogin}>Email:</label>
                     <input type="text" name="email" placeholder="email" value={email} onChange={inputEmailHandler} style={normalStyleLogin}></input>
                 </div>
