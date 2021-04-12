@@ -103,5 +103,15 @@ router.get("/token", passport.authenticate("jwt", { session: false }), (req, res
 
 })
 
+router.patch("/like", passport.authenticate("jwt", { session: false }), (req, res) => {
+    req.user.likedRecipes.push(req.body.recipeId)
+    req.user.save()
+    res.send(req.user)
+    // add favourite and recieve in the request body
+    return (user())
+
+
+})
+
 
 module.exports = router;

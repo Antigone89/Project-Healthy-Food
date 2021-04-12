@@ -1,5 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from "../Context/AuthContext"
+import { Button, Alert, Breadcrumb, Card } from 'react-bootstrap';
+
+
+<script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
 
 
 
@@ -40,7 +44,6 @@ const Registration = () => {
                 </div>
                 <div className="footer">
                     <button onClick={handleRegister} className="btn" style={activeStyleLogin}>Register</button>
-
                 </div>
             </div>
 

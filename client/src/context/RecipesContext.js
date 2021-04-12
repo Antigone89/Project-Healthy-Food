@@ -13,7 +13,7 @@ export const RecipesProvider = ({ children }) => {
 
 
 
-    const newRecipe = ({ title, ingredients, duration, comment }) => {
+    const newRecipe = ({ title, ingredients, duration, description }) => {
         const ingredientArrey = ingredients.replace(" ", "").split(",");
         console.log(ingredientArrey);
         var myHeaders = new Headers();
@@ -26,7 +26,7 @@ export const RecipesProvider = ({ children }) => {
 
         });
         urlencoded.append("duration", duration);
-        urlencoded.append("comment", comment);
+        urlencoded.append("description", description);
 
         var requestOptions = {
             method: 'POST',

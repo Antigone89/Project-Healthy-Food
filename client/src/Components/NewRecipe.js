@@ -8,7 +8,7 @@ const NewRecipe = () => {
     const [title, setTitle] = useState("");
     const [ingredients, setIngredients] = useState("");
     const [duration, setDuration] = useState("")
-    const [comment, setComment] =useState("")
+    const [description, setDescription] =useState("")
 
 
 
@@ -21,12 +21,12 @@ const NewRecipe = () => {
     const inputDurationHandler = (e) => {
         setDuration(e.target.value);
     }
-    const inputCommentHandler = (e) => {
-        setComment(e.target.value);
+    const inputDescriptionHandler = (e) => {
+        setDescription(e.target.value);
     }
     const handleNewRecipe = (e) => {
         e.preventDefault()
-        newRecipe({ title, ingredients, duration, comment })
+        newRecipe({ title, ingredients, duration, description })
 
     }
     
@@ -53,8 +53,8 @@ const NewRecipe = () => {
                     <input type="duration" name="duration" placeholder="duration" value={duration} onChange={inputDurationHandler} style={normalStyleNewRecipe}></input>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="comment " style={normalStyleNewRecipe}>Description</label>
-                    <textarea class="comment" style={commentBoxStyle} onChange={inputCommentHandler}>Describe your recipe here.</textarea>
+                    <label htmlFor="description " style={normalStyleNewRecipe}>Description</label>
+                    <textarea class="description" style={commentBoxStyle} onChange={inputDescriptionHandler}>Describe your recipe here.</textarea>
         
                        
                 </div>

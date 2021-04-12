@@ -45,7 +45,7 @@ const RecipesList = () => {
 
                 <Card.Title>Recipes</Card.Title>
                 <Card.Body>
-                    {recipes && recipes.map(recipe => {
+                    {recipes && recipes.reverse().map(recipe => {
                         return (
                             <RecipesDetails key={recipe.id} recipe={recipe} />
                             /* <p>{recipe.title}</p> */

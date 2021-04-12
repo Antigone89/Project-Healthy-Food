@@ -4,6 +4,8 @@ const RecipesSchema = require('../model/recipesModel')
 const router = express.Router();
 const passport = require('passport')
 
+
+
 router.get("/all",
     //  auth,
     passport.authenticate("jwt", { session: false }),
@@ -62,7 +64,7 @@ router.post('/new', (req, res) => {
     const title = req.body.title;
     const duration = req.body.duration;
     const ingredients = req.body.ingredients;
-    const comment = req.body.comment;
+    const description = req.body.description;
 
 
     /*const carbohydrates = req.body.carbohydrates;
@@ -73,7 +75,8 @@ router.post('/new', (req, res) => {
         title: title,
         duration: duration,
         ingredients: ingredients,
-        comment: comment,
+        description: description,
+
 
     })
     newRecipe.save()
@@ -108,5 +111,7 @@ router.get("/:id", (req, res) => {
 
 
 )
+
+
 
 module.exports = router;

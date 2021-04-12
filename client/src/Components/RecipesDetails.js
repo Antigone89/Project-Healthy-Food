@@ -38,7 +38,7 @@ function RecipesDetails(data) {
             <h3>Recipe: {recipe.title}</h3>
             <h4>Duration in h: {recipe.duration}</h4>
             <ul style={divStyle} >Ingredients: {recipe.ingredients.map((ingredient) => <li style={liStyle}>{ingredient}</li>)}</ul>
-            <p> Description: {recipe.comment}</p>
+            <p> Description: {recipe.description}</p>
 
 
 
