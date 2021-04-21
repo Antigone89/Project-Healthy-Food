@@ -50,7 +50,9 @@ const RecipesList = () => {
                             <RecipesDetails key={recipe.id} recipe={recipe} />
                             /* <p>{recipe.title}</p> */
                         )
-                    })}/</Card.Body>
+                    })}
+
+                </Card.Body>
 
                 <Button>Test Button</Button>
                 <Alert variant="success">This is a Button</Alert>

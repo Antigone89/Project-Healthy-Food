@@ -5,7 +5,7 @@ const UserSchema = require("../model/usersModel");
 const router = express.Router();
 const keys = require("../konfig/keys");
 const passport = require('passport')
-
+const recipeSchema = require('../model/recipesModel')
 
 router.post("/register", (req, res) => {
     const reqemail = req.body.email;
@@ -104,11 +104,17 @@ router.get("/token", passport.authenticate("jwt", { session: false }), (req, res
 })
 
 router.patch("/like", passport.authenticate("jwt", { session: false }), (req, res) => {
-    req.user.likedRecipes.push(req.body.recipeId)
-    req.user.save()
-    res.send(req.user)
+    recipeSchema.findById(req.body.recipeId, (err, recipe) => {
+        recipe.likes.push(req.user._id)
+        recipe.save()
+        req.user.likedRecipes.push(req.body.recipeId)
+        req.user.save()
+        res.send(req.user)
+    })
+
+
     // add favourite and recieve in the request body
-    return (user())
+
 
 
 })

@@ -122,7 +122,37 @@ export const AuthProvider = ({ children }) => {
     const addToFavorite = (favorite) => {
 
 
+
+        const token = localStorage.getItem('token')
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", `Bearer ${token}`);
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("recipeId", favorite);
+
+        var requestOptions = {
+            method: 'PATCH',
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: 'follow'
+        };
+
+
+        fetch('http://localhost:5000/users/like', requestOptions)
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                console.log(data)
+
+            })
+
     }
+
+
+
+
 
     const logout = () => {
         setUser(null)
