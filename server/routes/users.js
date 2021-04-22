@@ -120,4 +120,20 @@ router.patch("/like", passport.authenticate("jwt", { session: false }), (req, re
 })
 
 
+router.patch("/unlike", passport.authenticate("jwt", { session: false }), (req, res) => {
+    recipeSchema.findById(req.body.recipeId, (err, recipe) => {
+        recipe.likes.pull(req.user._id)
+        recipe.save()
+        req.user.likedRecipes.pull(req.body.recipeId)
+        req.user.save()
+        res.send(req.user)
+    })
+
+
+    // add favourite and recieve in the request body
+
+
+
+})
+
 module.exports = router;

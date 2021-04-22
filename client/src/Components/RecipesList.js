@@ -1,6 +1,7 @@
 import RecipesDetails from "./RecipesDetails"
 import React, { useState, useEffect, useContext } from 'react'
 import { RecipesContext } from '../Context/RecipesContext'
+import { AuthContext } from '../Context/AuthContext'
 import { Container, Row, Col, Button, Alert, Breadcrumb, Card } from 'react-bootstrap';
 
 
@@ -18,10 +19,11 @@ const container = {
 }
 const RecipesList = () => {
     const { recipes, getRecipes } = useContext(RecipesContext)
+    const { user } = useContext(AuthContext)
     useEffect(() => {
         getRecipes()
 
-    }, [])
+    }, [user])
     console.log('recipes', recipes)
 
 

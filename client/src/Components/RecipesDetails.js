@@ -30,10 +30,13 @@ const liStyle = {
 function RecipesDetails(data) {
     const recipe = data.recipe;
     console.log(recipe)
-    const { user, addToFavorite } = useContext(AuthContext)
+    const { user, addToFavorite, removeFavorite } = useContext(AuthContext)
     console.log(user)
     const handleLike = () => {
         addToFavorite(recipe._id)
+    }
+    const handleUnlike = () => {
+        removeFavorite(recipe._id)
     }
 
     return (
@@ -43,8 +46,12 @@ function RecipesDetails(data) {
             <h4>Duration in h: {recipe.duration}</h4>
             <ul style={divStyle} >Ingredients: {recipe.ingredients.map((ingredient) => <li style={liStyle}>{ingredient}</li>)}</ul>
             <p> Description: {recipe.description}</p>
-            {user.likedRecipes.includes(recipe._id) ? <p>Liked</p> : <button onClick={handleLike} >Like</button>}
+            {  user && <div>
+                {user.likedRecipes.includes(recipe._id) ? <button onClick={handleUnlike} >Unlike</button> : <button onClick={handleLike} >Like</button>}
+
+            </div>}
             <p>{recipe.likes.length}</p>
+
 
             {/* <button>Likes: {this.state.likes} </button> */}
 

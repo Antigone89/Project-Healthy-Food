@@ -117,7 +117,7 @@ export const AuthProvider = ({ children }) => {
 
     }
 
-
+    //Function for Liking a Recipe
 
     const addToFavorite = (favorite) => {
 
@@ -145,12 +145,43 @@ export const AuthProvider = ({ children }) => {
             })
             .then(data => {
                 console.log(data)
-
+                setUser(data)
             })
 
     }
 
 
+
+    const removeFavorite = (favorite) => {
+
+
+
+        const token = localStorage.getItem('token')
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", `Bearer ${token}`);
+        myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+
+        var urlencoded = new URLSearchParams();
+        urlencoded.append("recipeId", favorite);
+
+        var requestOptions = {
+            method: 'PATCH',
+            headers: myHeaders,
+            body: urlencoded,
+            redirect: 'follow'
+        };
+
+
+        fetch('http://localhost:5000/users/unlike', requestOptions)
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                console.log(data)
+                setUser(data)
+            })
+
+    }
 
 
 
@@ -161,7 +192,7 @@ export const AuthProvider = ({ children }) => {
     console.log(user)
     return (
 
-        <AuthContext.Provider value={{ user, login, register, addToFavorite, isAuthenticated, logout }}>
+        <AuthContext.Provider value={{ user, login, register, addToFavorite, removeFavorite, isAuthenticated, logout }}>
             {children}
         </AuthContext.Provider>
     )
