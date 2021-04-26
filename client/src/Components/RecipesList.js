@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { RecipesContext } from '../Context/RecipesContext'
 import { AuthContext } from '../Context/AuthContext'
 import { Container, Row, Col, Button, Alert, Breadcrumb, Card } from 'react-bootstrap';
-
+import spices from '../spices.jpg'
 
 <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
 
@@ -27,26 +27,22 @@ const RecipesList = () => {
     console.log('recipes', recipes)
 
 
-    // < Card className = 'mb-3' style = {{ color: '#000', marginBottom: '15px', margin: '100px' }
-    // }>
-    {/* <Card.Img src='https://picsum.photos/100/50'></Card.Img> */ }
-    {/* <Card.Body></Card.Body> */ }
-    {/* <Card.Title></Card.Title> */ }
-    {/* <Button>Test Button</Button> */ }
-    {/* <Alert variant="success">This is a Button</Alert> */ }
-    {/* <Breadcrumb.Item>Test1</Breadcrumb.Item> */ }
-    {/* <Breadcrumb.Item>Test2</Breadcrumb.Item> */ }
-    {/* <Breadcrumb.Item>Test3</Breadcrumb.Item> */ }
-    {/* </Card > */ }
-
 
     return (
 
         <div style={normalStyle}>
+            < div style={{ backgroundImage: `url(${spices})`, margin: "10px" }}>
+                .<br>
+                </br>
+                <br></br>
+                <br></br>
+                <br></br>
+            </div >
             <Card className='mb-3' style={{ color: '#000', marginBottom: '15px', margin: '100px' }}>
 
                 <Card.Title>Recipes</Card.Title>
                 <Card.Body>
+
                     {recipes && recipes.reverse().map(recipe => {
                         return (
                             <RecipesDetails key={recipe.id} recipe={recipe} />
@@ -56,10 +52,7 @@ const RecipesList = () => {
 
                 </Card.Body>
 
-                <Button>Test Button</Button>
-                <Alert variant="success">This is a Button</Alert>
-                <Breadcrumb.Item>Test1</Breadcrumb.Item>
-                <Breadcrumb.Item>Test2</Breadcrumb.Item>
+
             </Card>
         </div>
 

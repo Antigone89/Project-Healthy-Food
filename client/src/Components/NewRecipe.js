@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { RecipesContext } from "../Context/RecipesContext"
-
+import spices from '../spices.jpg'
 
 
 const NewRecipe = () => {
@@ -40,7 +40,13 @@ const NewRecipe = () => {
 
             <div className="form">
                 <div className="form-group">
-
+                    < div style={{ backgroundImage: `url(${spices})`, margin: "10px" }}>
+                        .<br>
+                        </br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                    </div >
                     <label htmlFor="title" style={normalStyleNewRecipe}>Title</label>
                     <input type="text" name="title" placeholder="title" value={title} onChange={inputTitleHandler} style={normalStyleNewRecipe}></input>
                 </div>

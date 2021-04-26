@@ -25,7 +25,6 @@ function App() {
         <AuthProvider>
           <div className="App">
             <Header />
-
             <Navbar />
             <Switch>
               <Route exact path="/" component={Home}>

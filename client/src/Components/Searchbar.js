@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import RecipesDetails from "./RecipesDetails"
+import spices from '../spices.jpg'
 
 
 
@@ -50,6 +51,13 @@ const Searchbar = () => {
 
     return (<div>
         <div className="Searchbar " style={normalStyle}>
+            < div style={{ backgroundImage: `url(${spices})`, margin: "10px" }}>
+                <br>
+                </br>
+                <br></br>
+                <br></br>
+                <br></br>
+            </div >
             <input onChange={handleChange} type="text" placeholder="Search..." value={input} />
             <button onClick={handleSearch} style={activeStyleSearch}>Search</button>
             <h3 style={{ color: "red" }}>{err}</h3>

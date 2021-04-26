@@ -7,6 +7,8 @@ import {
     Link,
     useLocation
 } from "react-router-dom";
+import spices from '../spices.jpg'
+
 
 //retrieve user from auth context and display his email
 const activeStyle = { color: "white", backgroundColor: "#f1356d", borderRadius: "8px", margin: '20px', padding: '10px', textDecoration: 'none', fontStyle: 'italic' }

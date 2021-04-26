@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from "../Context/AuthContext"
 import { Button, Alert, Breadcrumb, Card } from 'react-bootstrap';
+import spices from '../spices.jpg'
 
 
 <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
@@ -34,6 +35,13 @@ const Registration = () => {
 
             <div className="form">
                 <div className="form-group">
+                    < div style={{ backgroundImage: `url(${spices})`, margin: "10px" }}>
+                        .<br>
+                        </br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                    </div >
 
                     <label htmlFor="email" style={normalStyleLogin}>Email</label>
                     <input type="text" name="email" placeholder="email" value={email} onChange={inputEmailHandler} style={normalStyleLogin}></input>

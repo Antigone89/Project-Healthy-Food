@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from "../Context/AuthContext"
+import spices from '../spices.jpg'
 
 
 const Login = () => {
@@ -26,6 +27,14 @@ const Login = () => {
         <form>
             <div className="form">
                 <div className="form-group">
+
+                    < div style={{ backgroundImage: `url(${spices})`, margin: "10px" }}>
+                        .<br>
+                        </br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                    </div >
                     <div>
                         <h2 style={normalStyleLogin}>Log in</h2></div>
                     <label htmlFor="email" style={normalStyleLogin}>Email:</label>
