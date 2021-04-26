@@ -2,7 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import spices from '../spices.jpg'
 
-const AppHeader = { flexBox: 'flex', textAlign: 'center', fontWeight: 900, fontStyle: 'italic', display: 'inlineBlock', margin: '100px' }
+const AppHeader = { flexBox: 'flex', textAlign: 'center', fontWeight: 900, fontStyle: 'italic', display: 'inlineBlock', margin: '10px' }
 
 
 export const Header = () => {
