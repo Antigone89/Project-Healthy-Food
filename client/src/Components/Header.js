@@ -12,7 +12,7 @@ export const Header = () => {
     return (
 
         <div>
-            {location.pathname == '/login' && <h1>Login</h1>}
+            {location.pathname == '/login' && <h1></h1>}
             < div style={{ backgroundImage: `url(${spices})` }}>
                 Hello World
     </div >
