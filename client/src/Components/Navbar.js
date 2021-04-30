@@ -12,10 +12,10 @@ import spices from '../spices.jpg'
 
 //retrieve user from auth context and display his email
 // /* Mobile menu */ const menu = { display: 'flex', flexWrap: 'wrap', justifyContent: 'spaceBetween', alignItems: 'center', display: 'block' }
-const activeStyle = { width: '100 %', color: "white", backgroundColor: "#f1356d", borderRadius: "8px", margin: '20px', padding: '10px', textDecoration: 'none', fontStyle: 'italic', fontWeight: 900, }
-const normalStyle = { width: '100 %', color: "black", margin: '30px', padding: '40px', textDecoration: 'none', fontStyle: 'italic', fontWeight: 900, }
-const flexActiveStyle = { display: 'flex', width: '100 %', flexDirection: 'column' }
-const flexNormalStyle = { display: 'flex', width: '100 %', flexDirection: 'column' }
+const activeStyle = { width: '100%', color: "white", backgroundColor: "#f1356d", borderRadius: "8px", margin: '20px', padding: '10px', textDecoration: 'none', fontStyle: 'italic', fontWeight: 900, }
+const normalStyle = { width: '100%', color: "black", margin: '30px', padding: '40px', textDecoration: 'none', fontStyle: 'italic', fontWeight: 900, }
+const flexActiveStyle = { display: 'flex', boxSizing: 'borderBox', color: "white", backgroundColor: "#f1356d", borderRadius: "8px", margin: '20px', padding: '10px', textDecoration: 'none', fontStyle: 'italic', fontWeight: 900 }
+const flexNormalStyle = { display: 'flex', boxSizing: 'borderBox', width: '100 %', color: "black", margin: '30px', padding: '40px', textDecoration: 'none', fontStyle: 'italic', fontWeight: 900 }
 
 const Navigationbar = () => {
     const { user, logout } = useContext(AuthContext)
@@ -23,7 +23,8 @@ const Navigationbar = () => {
     const [isMobile, setIsMobile] = useState(false)
     console.log('location', location.pathname)
     useEffect(() => {
-        if (window.innerWidth < 100) {
+        console.log(`window`, window)
+        if (window.innerWidth < 1000) {
             setIsMobile(true)
         }
     }, [])
@@ -39,24 +40,25 @@ const Navigationbar = () => {
 
     return (
         isMobile ? (
-            <nav className="navbar">
-                <div >
-                    <Link to="/" style={location.pathname == "/" ? activeStyle : normalStyle && flexActiveStyle} >Home</Link>
-                    <Link to="/registration" style={location.pathname == "/registration" ? activeStyle : normalStyle && flexActiveStyle}>Registration</Link>
-                    <Link to="/searchbar" style={location.pathname == "/searchbar" ? activeStyle : normalStyle && flexActiveStyle}>Search</Link>
-                    <Link to="/recipes" style={location.pathname == "/recipes" ? activeStyle : normalStyle && flexActiveStyle}>Recipes</Link>
-                    <Link to="/newRecipe" style={location.pathname == "/newRecipe" ? activeStyle : normalStyle && flexActiveStyle}>Add New Recipe</Link>
-                    <Link to="/login" style={location.pathname == "/login" ? activeStyle : normalStyle && flexActiveStyle}>Login</Link>
+            <nav className="navbar" >
+
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                    <Link to="/" style={location.pathname == "/" ? flexActiveStyle : flexNormalStyle} >Home</Link>
+                    <Link to="/registration" style={location.pathname == "/registration" ? flexActiveStyle : flexNormalStyle}>Registration</Link>
+                    <Link to="/searchbar" style={location.pathname == "/searchbar" ? flexActiveStyle : flexNormalStyle}>Search</Link>
+                    <Link to="/recipes" style={location.pathname == "/recipes" ? flexActiveStyle : flexNormalStyle}>Recipes</Link>
+                    <Link to="/newRecipe" style={location.pathname == "/newRecipe" ? flexActiveStyle : flexNormalStyle}>Add New Recipe</Link>
+                    <Link to="/login" style={location.pathname == "/login" ? flexActiveStyle : flexNormalStyle}>Login</Link>
+
+
+                    {user ?
+                        <div>
+                            <p>{user.email}</p>
+                            <button onClick={handleLogout} className="btn">Logout</button>
+                        </div>
+                        : <p>No user</p>}
+
                 </div>
-
-                {user ?
-                    <div>
-                        <p>{user.email}</p>
-                        <button onClick={handleLogout} className="btn">Logout</button>
-                    </div>
-                    : <p>No user</p>}
-
-
 
             </nav>
         ) :
